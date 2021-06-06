@@ -1,0 +1,18 @@
+# $Id: ftest.vc6,v 1.1 2002-12-09 15:48:25+03 dstef Exp root $
+
+TARGET=ftest
+GETOPT=getopt
+C_FLAGS=-D_MSVC /O2 /G5 /WX
+
+all: $(TARGET).exe
+
+$(GETOPT).obj: $(GETOPT).c
+	cl /c $(C_FLAGS) /Fo$(GETOPT).obj $(GETOPT).c
+
+$(TARGET).exe: $(GETOPT).obj $(TARGET).c
+	cl $(C_FLAGS) /Fe$(TARGET).exe $(TARGET).c $(GETOPT).obj
+
+clean: 
+	del $(GETOPT).obj
+	del $(TARGET).obj
+	del $(TARGET).exe

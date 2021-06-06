@@ -1,0 +1,19 @@
+# $Id: ftest3.mgw,v 1.2 2013-03-04 18:06:55+04 dstef Exp root $
+
+TARGET=ftest3
+GETOPT=getopt
+#C_FLAGS=-mconsole -mno-cygwin -Wall -O2 -march=pentium -mthreads -D_MINGW32 
+C_FLAGS=-mconsole -Wall -O2 -mthreads -D_MINGW32 -D_WIN32_WINNT=0x0501
+###-m64
+
+all: $(TARGET).exe
+
+$(GETOPT).obj: $(GETOPT).c
+	gcc -c $(C_FLAGS) -o $(GETOPT).obj $(GETOPT).c
+
+$(TARGET).exe: $(GETOPT).obj $(TARGET).c
+	gcc $(C_FLAGS) -o $(TARGET).exe $(TARGET).c $(GETOPT).obj -lwsock32
+
+clean: 
+	del $(GETOPT).obj
+	del $(TARGET).exe

@@ -1,0 +1,17 @@
+# $Id: ftest.mgw,v 1.2 2002-12-09 15:48:41+03 dstef Exp root $
+
+TARGET=ftest
+GETOPT=getopt
+C_FLAGS=-mconsole -mno-cygwin -Wall -O2 -mpentium
+
+all: $(TARGET).exe
+
+$(GETOPT).obj: $(GETOPT).c
+	gcc -c $(C_FLAGS) -o $(GETOPT).obj $(GETOPT).c
+
+$(TARGET).exe: $(GETOPT).obj $(TARGET).c
+	gcc $(C_FLAGS) -o $(TARGET).exe $(TARGET).c $(GETOPT).obj
+
+clean: 
+	del $(GETOPT).obj
+	del $(TARGET).exe

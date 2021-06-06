@@ -1,0 +1,36 @@
+
+File I/O testing program (with pthreads), version 1.3.1
+Copyright (C) 2006-2007 Dmitry Stefankov. All rights reserved.
+Usage: ftest2 [-AdfhlMmOrSRuyvz] [-n filecount] [-s bufsize] [-f filesize]
+       [-p passes] [-t workdir] [-a io_tmout_secs] [-L logfile] [-j threads]
+       [-w usec] [-P max_int_num] [-o actv_mon_tmout]
+       -A   use alarm control for r/w ops (default=no)
+       -d   direct writing (no caching)
+       -h   this help
+       -l   run forever
+       -m   separate buffers for read and write
+       -r   fill buffers with random values
+       -y   synchronous writes
+       -v   verbose output
+       -z   don't delete temporary files
+       -M   disable summary statistics collection (default=enable)
+       -j   number of threads
+       -w   wait microsec before run each thread (default=0)
+       -u   disable async. user break signal (default=enable)
+       -P   max.int.num to search prime numbers (def.=0, rec.=10000+)
+       -O   use active monitoring of threads state
+       -o   active monitoring time interval (default=none)
+       -R   re-run terminated threads (default=no)
+       -S   enable to sleep N random seconds in each thread (default=no)
+Default parameters:
+   Passes number:    min=1, def=1, max=unlimited
+   Files/buffers:    min=1, def=1, max=100
+   Buffer size:      min=1 MB, def=4 MB, max=unlimited
+   File   size:      min=1 MB, def=16 MB, max=unlimited
+   Threads number:   min=1, def=1, max=500
+   Working catalog:  /tmp
+   I/O op. timeout:  3600 seconds
+Screen output symbols:
+   w=writing, r=reading, *=full buffer, .=partial buffer
+Sample command line:
+   ./ftest2 -vluSRO -j 2 -s 100 -f 6500 -t /test_dir -o 60   ./ftest2 -vlr -s 400 -f 1600 -t /media1   ./ftest2 -vlr -s 500

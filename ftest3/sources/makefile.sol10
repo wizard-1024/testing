@@ -1,0 +1,14 @@
+# $Id: makefile.sol10,v 1.1 2016-09-03 19:17:27+03 dstef Exp root $
+
+target=ftest3
+warnings=-Wall
+CC=/opt/csw/bin/gcc
+
+$(target): $(target).c
+	$(CC) $(warnings) -D_GNU_SOURCE=1 -D_BSD_SOURCE=1 -o $(target) $(target).c -pthread
+
+static: $(target).c
+	$(CC) -static $(warnings) -D_GNU_SOURCE=1 -D_BSD_SOURCE=1 -o $(target) $(target).c -pthread
+	
+clean:
+	rm -f $(target)

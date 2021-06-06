@@ -1,0 +1,91 @@
+/*****************************************************************************
+ *                           File ftest3.rc                                 
+ *
+ *              Simple I/O test bechmark program with Posix threads
+ *
+ *      Copyright (c) Dmitry V. Stefankov, 2013. All rights reserved.
+ *
+ *****************************************************************************/
+/*
+ *   $Source: /usr/local/src/projects/tests/ftest3/RCS/ftest3.rc,v $
+ *  $RCSfile: ftest3.rc,v $
+ *   $Author: dstef $
+ *     $Date: 2013-01-26 18:48:35+04 $
+ * $Revision: 1.1 $
+ *   $Locker: root $
+ *
+ *      $Log: ftest3.rc,v $
+ *      Revision 1.1  2013-01-26 18:48:35+04  dstef
+ *      Initial revision
+ *
+ ****************************************************************************/
+
+#include "windows.h"
+#include "winver.h"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+
+WINAUTORUNSC		  ICON	  DISCARDABLE     "FIRE.ICO"
+
+
+#define MANIFEST_RESOURCE_ID 1
+MANIFEST_RESOURCE_ID RT_MANIFEST "ftest3.exe.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0xbL
+#else
+ FILEFLAGS 0xaL
+#endif
+ FILEOS 0x10001L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "Comments", "Written by: Dmitry Stefankov\0"
+            VALUE "CompanyName", "Private Person\0"
+            VALUE "FileDescription", "Simple I/O test bechmark program with Posix/Windows threads\0"
+            VALUE "FileVersion", "1.56\0"
+            VALUE "InternalName", "FTEST3\0"
+            VALUE "LegalCopyright", "Copyright (C) 2013 Dmitry Stefankov\0"
+            VALUE "LegalTrademarks", "Microsoft(R) is a registered trademark of Microsoft Corporation.\n\rWindows(TM) is a trademark of Microsoft Corporation\0"
+            VALUE "OriginalFilename", "ftest3.exe\0"
+            VALUE "ProductName", "Simple I/O test bechmark\0"
+            VALUE "ProductVersion", "1.0.0\0"
+        END
+        BLOCK "041904B0"
+        BEGIN
+            VALUE "Comments", "Written by: Dmitry Stefankov\0"
+            VALUE "CompanyName", "Private Person\0"
+            VALUE "FileDescription", "Simple I/O test bechmark program with Posix/Windows threads\0"
+            VALUE "FileVersion", "1.56\0"
+            VALUE "InternalName", "FTEST3\0"
+            VALUE "LegalCopyright", "Copyright (C) 2013 Dmitry Stefankov\0"
+            VALUE "LegalTrademarks", "Microsoft(R) is a registered trademark of Microsoft Corporation.\n\rWindows(TM) is a trademark of Microsoft Corporation\0"
+            VALUE "OriginalFilename", "ftest3.exe\0"
+            VALUE "ProductName", "Simple I/O test bechmark\0"
+            VALUE "ProductVersion", "1.0.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+	VALUE "Translation", 0x409, 0x04E4, 0x419, 0x4B0
+    END
+END
+
